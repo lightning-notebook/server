@@ -78,12 +78,11 @@ description = "✨ Lightweight reactive notebooks for Python"
 category = "main"
 optional = false
 python-versions = "^3.6"
+develop = false
 
 [package.source]
-type = "git"
-url = "https://github.com/pluto-py/engine"
-reference = "master"
-resolved_reference = "81e9973b194189382b75d24da39ee914dfa03c0b"
+type = "directory"
+url = "../pluto.py-engine"
 
 [[package]]
 name = "py"
@@ -168,6 +167,14 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "watchgod"
+version = "0.6"
+description = "Simple, modern file watching and code reload in python."
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[[package]]
 name = "wcwidth"
 version = "0.2.5"
 description = "Measures the displayed width of unicode strings in a terminal"
@@ -186,7 +193,7 @@ python-versions = ">=3.6.1"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "9640b2031a4ac19bc3ec95d5ddcba46d2274608a54228db9dd32bd0f10d86f88"
+content-hash = "708c0fd319c056c53f16b5be1a32ebf0933b3e3c1ff6d96b45a7c333615373d2"
 
 [metadata.files]
 atomicwrites = [
@@ -243,6 +250,10 @@ tinyrpc = [
 toml = [
     {file = "toml-0.10.1-py2.py3-none-any.whl", hash = "sha256:bda89d5935c2eac546d648028b9901107a595863cb36bae0c73ac804a9b4ce88"},
     {file = "toml-0.10.1.tar.gz", hash = "sha256:926b612be1e5ce0634a2ca03470f95169cf16f939018233a670519cb4ac58b0f"},
+]
+watchgod = [
+    {file = "watchgod-0.6-py35.py36.py37-none-any.whl", hash = "sha256:59700dab7445aa8e6067a5b94f37bae90fc367554549b1ed2e9d0f4f38a90d2a"},
+    {file = "watchgod-0.6.tar.gz", hash = "sha256:e9cca0ab9c63f17fc85df9fd8bd18156ff00aff04ebe5976cee473f4968c6858"},
 ]
 wcwidth = [
     {file = "wcwidth-0.2.5-py2.py3-none-any.whl", hash = "sha256:beb4802a9cebb9144e99086eff703a642a13d6a0052920003a230f3294bbe784"},
