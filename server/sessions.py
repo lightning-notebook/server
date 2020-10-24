@@ -1,35 +1,61 @@
 from pluto.identified import Identified, UUID
+from pluto.notebook.file_format import from_file_format, to_file_format
 from pluto.notebook import Notebook
-from typing import Dict
+from typing import Dict, Optional
+
+
+class NotebookSession(Notebook):
+    """A NotebookSession which is currently active & can be changed before saving to a file."""
+    id: str
+    path: str
+
+    def __init__(self) -> None:
+        super().__init__()
+
+    def add_cell(self):
+        pass
+
+    def delete_cell(self):
+        pass
+
+
+def load_notebook(path: str) -> NotebookSession:
+    pass
+
+
+def save_notebook(path: str, notebook: NotebookSession):
+    pass
+
+
+NotebookSession.load_notebook = load_notebook
+NotebookSession.save_notebook = save_notebook
 
 
 class ServerSession():
-    _notebooks: Dict[str, Notebook]
+    """An abstract ServerSession which isn't necessarily part of a running Server."""
+    notebook_sessions: Dict[str, NotebookSession] = dict()
 
-    @property
-    def notebooks(self):
-        return self._notebooks
-
-    def __init__(self, notebooks: Dict[str, Notebook] = dict()) -> None:
-        self._notebooks = notebooks
+    def __init__(self) -> None:
+        pass
 
     def create_notebook(self, notebook_id: str):
-        if notebook_id in self._notebooks:
+        if notebook_id in self.notebooks:
             print("Notebook already exists")
             return
 
-        self._notebooks[notebook_id] = Notebook(id=notebook_id)
+        self.notebooks[notebook_id] = Notebook(id=notebook_id)
 
-    def add_notebook(self, notebook: Notebook):
-        self._notebooks[notebook.id] = notebook
+    def start_notebook(self, notebook_id: str):
+        self.create_notebook(notebook_id=notebook_id)
 
-    def remove_notebook(self, notebook: Notebook):
-        self._notebooks.pop(notebook.id)
+    def stop_notebook(self, notebook_id: str):
+        self.notebooks.pop(notebook_id)
 
 
 class ClientSession(Identified):
-    id: UUID
-    notebook: Notebook
+    """An abstract ClientSession which isn't necessarily associated with a connected Client."""
+    id: str
+    notebook_id: str
 
     def __init__(self, id=None) -> None:
         super().__init__(id=id)

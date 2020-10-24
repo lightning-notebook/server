@@ -77,8 +77,11 @@ version = "0.1.0"
 description = "✨ Lightweight reactive notebooks for Python"
 category = "main"
 optional = false
-python-versions = "^3.6"
+python-versions = "^3.9"
 develop = false
+
+[package.dependencies]
+typing = "^3.7.4"
 
 [package.source]
 type = "directory"
@@ -167,6 +170,14 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "typing"
+version = "3.7.4.3"
+description = "Type Hints for Python"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[[package]]
 name = "watchgod"
 version = "0.6"
 description = "Simple, modern file watching and code reload in python."
@@ -193,7 +204,7 @@ python-versions = ">=3.6.1"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "708c0fd319c056c53f16b5be1a32ebf0933b3e3c1ff6d96b45a7c333615373d2"
+content-hash = "d24ea49f354bfeea557d7a8ba4adc392221d7ba9f7a3c49e8a649765b595c5f7"
 
 [metadata.files]
 atomicwrites = [
@@ -250,6 +261,10 @@ tinyrpc = [
 toml = [
     {file = "toml-0.10.1-py2.py3-none-any.whl", hash = "sha256:bda89d5935c2eac546d648028b9901107a595863cb36bae0c73ac804a9b4ce88"},
     {file = "toml-0.10.1.tar.gz", hash = "sha256:926b612be1e5ce0634a2ca03470f95169cf16f939018233a670519cb4ac58b0f"},
+]
+typing = [
+    {file = "typing-3.7.4.3-py2-none-any.whl", hash = "sha256:283d868f5071ab9ad873e5e52268d611e851c870a2ba354193026f2dfb29d8b5"},
+    {file = "typing-3.7.4.3.tar.gz", hash = "sha256:1187fb9c82fd670d10aa07bbb6cfcfe4bdda42d6fab8d5134f04e8c4d0b71cc9"},
 ]
 watchgod = [
     {file = "watchgod-0.6-py35.py36.py37-none-any.whl", hash = "sha256:59700dab7445aa8e6067a5b94f37bae90fc367554549b1ed2e9d0f4f38a90d2a"},
