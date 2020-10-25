@@ -1,8 +1,9 @@
+from pluto.notebook.notebook import Notebook
 from tinyrpc.protocols.jsonrpc import JSONRPCProtocol, JSONRPCRequest
 from tinyrpc.dispatch import RPCDispatcher
 from tinyrpc.exc import BadRequestError
 from .sessions import ServerSession, ClientSession
-from typing import Set
+from typing import Set, Dict
 import websockets as ws
 import asyncio
 
@@ -25,6 +26,9 @@ class Client(ClientSession):
             self.socket.send(message)
         except Exception as error:
             print("error", error)
+
+    async def sendRequest(self, method, *args, **kwargs):
+        pass
 
 
 class Server(ServerSession):
